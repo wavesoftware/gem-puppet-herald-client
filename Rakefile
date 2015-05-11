@@ -62,7 +62,7 @@ begin
     end
   end
   tests << :rubocop
-rescue Gem::LoadError, LoadError
+rescue Gem::LoadError, LoadError # rubocop:disable Lint/HandleExceptions
   # do nothing
 end
 
@@ -70,14 +70,14 @@ begin
   require 'inch/rake'
   Inch::Rake::Suggest.new :inch, '--pedantic'
   tests << :inch
-rescue Gem::LoadError, LoadError
+rescue Gem::LoadError, LoadError # rubocop:disable Lint/HandleExceptions
   # do nothing here
 end
 
 Coveralls.wear! if ENV['TRAVIS']
 
 desc 'Run lint, and all spec tests.'
-task :test => tests
+task :test => tests # rubocop:disable Style/HashSyntax
 
 desc 'Build a gem package.'
 task :gem do
@@ -85,6 +85,6 @@ task :gem do
 end
 
 desc 'Builds, and test package'
-task :build => [:test, :gem]
+task :build => [:test, :gem] # rubocop:disable Style/HashSyntax
 
-task :default => :test
+task :default => :test # rubocop:disable Style/HashSyntax
