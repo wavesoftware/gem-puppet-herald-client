@@ -81,7 +81,7 @@ task :test => tests # rubocop:disable Style/HashSyntax
 
 desc 'Build a gem package.'
 task :gem do
-  sh 'gem build puppet-herald.gemspec'
+  sh 'gem build *.gemspec'
 end
 
 desc 'Builds, and test package'
